@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 import validate from './validate';
+import { arrayPush } from 'redux-form';
 
 const renderCardHolderBlock = ({ input, label, type, meta: { touched, error } }) => (
   <div>
@@ -81,6 +82,7 @@ const renderConventions = ({ fields, meta: { touched, error, submitFailed } }) =
 
 const FieldArraysForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
+ {props.dispatch(arrayPush('fieldArrays', 'fieldArrays[0].lastName', 'Mountasser'))}
   return (
     <form onSubmit={handleSubmit}>
     <RenderList/>
